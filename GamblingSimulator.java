@@ -133,12 +133,12 @@ public class GamblingSimulator{
         		int luck_day = 0;
         		double luck_day_amt = 0;
         		int unluck_day = 0;
-        		double unluck_day_amt = 0;        
+        		double unluck_day_amt = 0;
         		// Game played for a month
         		for (int i=1;i<31;i++){
-        		    double daily_amt_won_lost = 0;
-        		    int bets_played = 0;
-            
+        		    	double daily_amt_won_lost = 0;
+        		    	int bets_played = 0;
+
            		    // Everyday game stops at 50% margin or before 100 bets, whichever comes earlier
             		    while ((daily_amt_won_lost<max_margin) && (daily_amt_won_lost>min_margin)
                     			&& (bets_played < NO_OF_BETS)){
@@ -162,11 +162,54 @@ public class GamblingSimulator{
             	   	   }
         		}
         		// Print luckiest and unluckiest days and the amounts won or last on that day
-            		System.out.println("The luckiest day for gambler is Day "+ luck_day + 
+            		System.out.println("The luckiest day for gambler is Day "+ luck_day +
                     			", on which he won $"+luck_day_amt);
-            		System.out.println(" And the unluckiest day for gambler is Day "+ unluck_day + 
+            		System.out.println(" And the unluckiest day for gambler is Day "+ unluck_day +
                     			", on which he lost $"+Math.abs(unluck_day_amt));
     		}
+
+		public void gamblerShouldPlayOrNot(){
+			System.out.println("Use Case 7 result");
+        		// Assume 100 bets played every day
+        		int NO_OF_BETS = 100;
+        		//margin = 50%
+        		double max_margin = 0.5*STARTING_BET_STAKE;
+        		double min_margin = -0.5*STARTING_BET_STAKE;
+        		double tot_amt_won_lost = 0;
+
+        		// Game played for 30 days
+        		for (int i=1;i<31;i++){
+            			double daily_amt_won_lost = 0;
+            			int bets_played = 0;
+
+            			// Everyday game stops at 50% margin or if number of bets exceed 100
+            			while ((daily_amt_won_lost<max_margin) && (daily_amt_won_lost>min_margin)
+                    				&& (bets_played < NO_OF_BETS)){
+                			double random_num = Math.random();
+                			bets_played++;
+
+                			if (random_num>0.5){
+                    				daily_amt_won_lost += MINIMUM_BET_PER_GAME;
+                			}else if (random_num<=0.5){
+                    				daily_amt_won_lost -= MINIMUM_BET_PER_GAME;
+                			}
+            			}
+            			// total amount won or lost in a month
+            			tot_amt_won_lost += daily_amt_won_lost;
+        		}
+
+		        // If he has won in last month
+        		if (tot_amt_won_lost>0){
+
+                			System.out.println("The gambler has won $"+ tot_amt_won_lost +" last month and he would like to continue playing next month also");
+            		}
+
+        		// If he has lost in last month
+        		else{
+                		System.out.println("The gambler has lost $" + Math.abs(tot_amt_won_lost) + " last month and decided to stop playing now.");
+        		}
+    		}
+
 
        	 public static void main(String[] args){
 		GamblingSimulator player = new GamblingSimulator();
@@ -175,6 +218,6 @@ public class GamblingSimulator{
 		player.gamblingFor20Days();
 		player.gamblingFor30Days();
 		player. LuckiestUnluckiestDay();
-
+		player.gamblerShouldPlayOrNot();
 	}
 }
