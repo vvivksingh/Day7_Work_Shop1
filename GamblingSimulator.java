@@ -122,7 +122,7 @@ public class GamblingSimulator{
         		}
    		 }
 
-
+		// Use case 6
 		public void LuckiestUnluckiestDay(){
 			System.out.println("Use Case 6 Result");
        			 // Assume 100 bets played every day
@@ -167,7 +167,7 @@ public class GamblingSimulator{
             		System.out.println(" And the unluckiest day for gambler is Day "+ unluck_day +
                     			", on which he lost $"+Math.abs(unluck_day_amt));
     		}
-
+                // Use Case 7
 		public void gamblerShouldPlayOrNot(){
 			System.out.println("Use Case 7 result");
         		// Assume 100 bets played every day
@@ -201,7 +201,7 @@ public class GamblingSimulator{
 		        // If he has won in last month
         		if (tot_amt_won_lost>0){
 
-                			System.out.println("The gambler has won $"+ tot_amt_won_lost +" last month and he would like to continue playing next month also");
+                			System.out.println("The gambler has won $"+ tot_amt_won_lost +" last month and he would like to continue playing next month.");
             		}
 
         		// If he has lost in last month
