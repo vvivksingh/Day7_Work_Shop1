@@ -34,7 +34,7 @@ public class GamblingSimulator{
             			double random_num = Math.random();
             			if (random_num>0.5){
                 			avail_amt += MINIMUM_BET_PER_GAME;
-            			}else if (random_num<=0.5){
+            			}else{
                 			avail_amt -= MINIMUM_BET_PER_GAME;
             			}
    	    		}
@@ -65,7 +65,7 @@ public class GamblingSimulator{
 
 		                	if (random_num>0.5){
                     				daily_amt_won_lost += MINIMUM_BET_PER_GAME;
-                			}else if (random_num<=0.5){
+                			}else{
                     				daily_amt_won_lost -= MINIMUM_BET_PER_GAME;
                 			}
             			}
@@ -104,7 +104,7 @@ public class GamblingSimulator{
                 		//check whether he wins or loses the bet
                 		if (random_num>0.5){
                     			daily_amt_won_lost += MINIMUM_BET_PER_GAME;
-                		}else if (random_num<=0.5){
+                		}else{
                     			daily_amt_won_lost -= MINIMUM_BET_PER_GAME;
                 		}
             			}
@@ -147,7 +147,7 @@ public class GamblingSimulator{
                 		//check whether he wins or loses the bet
                 		if (random_num>0.5){
                     			daily_amt_won_lost += MINIMUM_BET_PER_GAME;
-                		}else if (random_num<=0.5){
+                		}else{
                     			daily_amt_won_lost -= MINIMUM_BET_PER_GAME;
                 		}
             		   }
@@ -190,7 +190,7 @@ public class GamblingSimulator{
 
                 			if (random_num>0.5){
                     				daily_amt_won_lost += MINIMUM_BET_PER_GAME;
-                			}else if (random_num<=0.5){
+                			}else{
                     				daily_amt_won_lost -= MINIMUM_BET_PER_GAME;
                 			}
             			}
